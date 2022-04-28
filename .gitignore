@@ -1,2 +1,5 @@
 build
 Session.vim
+dependencies
+agent++-4.5.1
+snmp++-3.4.7

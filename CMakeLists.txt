@@ -7,20 +7,6 @@ if(NOT "${CMAKE_BUILD_TYPE}")
 endif()
 message("Build type: ${CMAKE_BUILD_TYPE}")
 
-add_compile_options(
-    -Wredundant-decls
-    -Wcast-align
-    -Wmissing-include-dirs
-    -Wswitch-enum
-    -Wswitch-default
-    -Wextra
-    -Wall
-    -Winvalid-pch
-    -Wredundant-decls
-    -Wmissing-format-attribute
-    -pedantic
-)
-
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/modules)
 
 find_package (snmp_pp)
@@ -74,11 +60,7 @@ set(EXAMPLE_PLUGIN_SRC
     src/examplePlugin.cpp
     src/pluginBase.cpp
 )
-# plugin for daemon
-add_library(example-plugin SHARED ${EXAMPLE_PLUGIN_SRC})
-target_include_directories(example-plugin PRIVATE ${PLUGIN_INCLUDE_DIRS})
-target_link_libraries(example-plugin ${PLUGIN_LIBRARIES})
-set_target_properties(example-plugin PROPERTIES PREFIX "")
+
 # standalone executable plugin
 add_executable(example-standalone-plugin ${EXAMPLE_PLUGIN_SRC})
 target_compile_definitions(example-standalone-plugin PUBLIC -DSTANDALONE)
