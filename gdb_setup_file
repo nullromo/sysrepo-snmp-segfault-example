@@ -3,5 +3,4 @@ layout split
 break ExampleLeaf::get_request
 run
 break sr_shmsub_oper_notify
-b /home/kkovacs/oss_97542/third-party-libraries/sysrepo/src/shm_sub.c:1607
 refresh

@@ -3,6 +3,11 @@
 This repo provides a minimal example to reproduce a segmentation fault that we
 found.
 
+## Prerequisites
+
+Sysrepo must be installed (latest libyang devel version: `a9b056ba`, latest
+sysrepo devel version: `13cf1e7c`).
+
 ## Setup
 
 1. Clone the repository.
@@ -18,14 +23,10 @@ found.
     sysrepoctl --install=./example-module@2022-04-28.yang
     ```
 
-1. Build the project.
+1. Run the build script.
 
     ```bash
-    mkdir build
-    cd build
-    cmake ..
-    make
-    cd ..
+    ./build.sh
     ```
 
 ## How to reproduce the bug
