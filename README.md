@@ -8,6 +8,8 @@ found.
 Sysrepo must be installed (latest libyang devel version: `a9b056ba`, latest
 sysrepo devel version: `13cf1e7c`).
 
+You also need to install `snmpget` (`apt-get install snmp`).
+
 ## Setup
 
 1. Clone the repository.
