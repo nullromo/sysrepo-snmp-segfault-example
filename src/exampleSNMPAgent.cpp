@@ -1,4 +1,5 @@
 #include "exampleMib.hpp"
+#include <agent_pp/threads.h>
 #include <agent_pp/v3_mib.h>
 #include <agent_pp/vacm.h>
 
@@ -82,7 +83,9 @@ int main() {
         exit(rc);
     }
     initSignals();
+    Agentpp::ThreadPool* threadPool = new Agentpp::ThreadPool(4, 0x15000);
     mib.add(new ExampleMib());
+    mib.set_thread_pool(threadPool);
     mib.init();
     Agentpp::RequestList* requestList = new Agentpp::RequestList(&mib);
     snmpBoilerplate(requestList);

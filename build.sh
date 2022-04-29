@@ -17,7 +17,7 @@ make install
 cd ../..
 
 cd agent++-4.5.1/build
-cmake .. -DCMAKE_INSTALL_PREFIX=../../dependencies
+cmake .. -DCMAKE_INSTALL_PREFIX=../../dependencies -DAGENTPP_USE_THREAD_POOL=1
 make -j8
 make install 
 cd ../..
