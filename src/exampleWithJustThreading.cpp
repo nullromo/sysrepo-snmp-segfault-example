@@ -3,8 +3,8 @@
 #include <sysrepo.h>
 #include <pthread.h>
 #include <unistd.h>
-#include "getData.hpp"
 #include <stdlib.h>
+#include "getData.hpp"
 
 #define NUM_THREADS 1
 #define DEFAULT_STACK_SIZE 0x10000
@@ -33,10 +33,9 @@ int main(int argc, char** argv) {
                 printf("Setting default stack size for each thread to %d\n", parsedValue);
                 defaultStackSize = parsedValue;
             } else {
-                printf("stack size %d must be greator than %d\n", parsedValue, DEFAULT_STACK_SIZE);
+                printf("stack size %d must be greater than %d\n", parsedValue, DEFAULT_STACK_SIZE);
                 defaultStackSize = DEFAULT_STACK_SIZE;
             }
-
             break;
         default: 
             defaultStackSize = DEFAULT_STACK_SIZE;
