@@ -3,7 +3,7 @@
 
 #define EXAMPLE_DATA_XPATH "/example-module:example-data"
 
-static sr_subscription_ctx_t* subscriptionContext = NULL;
+sr_subscription_ctx_t* subscriptionContext = NULL;
 
 #ifdef __cplusplus
 extern "C" {

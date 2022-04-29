@@ -65,6 +65,10 @@ int PluginBase::run() {
         goto finish;
     }
 
+    // This is a standalone plugin start the nacm
+    printf("Standalone plugin initializing nacm\n");
+    sr_nacm_init(this->session, SR_SUBSCR_DEFAULT, &this->nacmSubscription);
+
     // start the plugin using the session
     rc = this->pluginInit(this->session, NULL);
     if (rc != SR_ERR_OK) {
@@ -79,6 +83,11 @@ int PluginBase::run() {
         sleep(1);
 
 finish:
+    if (this->nacmSubscription) {
+        printf("Standalone plugin cleanup nacm\n");
+        sr_unsubscribe(this->nacmSubscription);
+        sr_nacm_destroy();
+    }
     this->pluginCleanup(this->session, NULL);
     sr_disconnect(this->connection);
     return rc;

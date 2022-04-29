@@ -61,8 +61,13 @@ set(EXAMPLE_PLUGIN_SRC
     src/pluginBase.cpp
 )
 
+
 # standalone executable plugin
 add_executable(example-standalone-plugin ${EXAMPLE_PLUGIN_SRC})
 target_compile_definitions(example-standalone-plugin PUBLIC -DSTANDALONE)
 target_include_directories(example-standalone-plugin PRIVATE ${PLUGIN_INCLUDE_DIRS})
 target_link_libraries(example-standalone-plugin ${PLUGIN_LIBRARIES})
+
+add_executable(example-just-threading src/exampleWithJustThreading.cpp)
+target_include_directories(example-just-threading PRIVATE ${PLUGIN_INCLUDE_DIRS})
+target_link_libraries(example-just-threading ${PLUGIN_LIBRARIES} pthread) 
